@@ -12,3 +12,5 @@ On this project I have used the following technologies:
 - [React-Router-Dom](https://reactrouter.com/)
 - [React-Loader-Spinner](https://www.npmjs.com/package/react-loader-spinner)
 - [React-Icons](https://www.npmjs.com/package/react-icons)
+
+# Greate Thanks to the following channel <a href="https://www.youtube.com/c/JavaScriptMastery" target="_blank" >JavaScriptMastery</a>
