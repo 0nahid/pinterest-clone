@@ -6,17 +6,14 @@ import logo from "../assets/pinterest.png";
 import { client } from "../client";
 import { Sidebar, UserProfile } from "../components";
 import { userQuery } from "../utils/data";
+import { fetchUser } from "../utils/fetchUser";
 import Pins from "./Pins";
 export default function Home() {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState();
   const scrollRef = useRef(null);
 
-  const userInfo =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
-
+  const userInfo = fetchUser();
   useEffect(() => {
     const query = userQuery(userInfo?.googleId);
 

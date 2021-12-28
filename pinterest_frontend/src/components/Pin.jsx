@@ -5,19 +5,13 @@ import { MdDownloadForOffline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { client, urlFor } from "../client";
+import { fetchUser } from "../utils/fetchUser";
 export default function Pin({ pin }) {
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
-
   const navigate = useNavigate();
-
   const { postedBy, image, _id, destination } = pin;
-
-  const user =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
-
+  const user = fetchUser();
   const deletePin = (id) => {
     client.delete(id).then(() => {
       window.location.reload();
@@ -116,7 +110,7 @@ export default function Pin({ pin }) {
                 >
                   {" "}
                   <BsFillArrowUpRightCircleFill />
-                  {destination?.slice(8, 17)}...
+                  {destination?.slice(8, 18)}...
                 </a>
               ) : undefined}
               {postedBy?._id === user?.googleId && (
